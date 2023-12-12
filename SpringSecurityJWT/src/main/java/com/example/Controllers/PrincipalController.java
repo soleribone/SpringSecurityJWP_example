@@ -8,6 +8,7 @@ import com.example.repositories.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -16,13 +17,16 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
-@RequiredArgsConstructor
+
 public class PrincipalController {
 
 
+    @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
     private UserRepository userRepository;
 
+    @Autowired
     private ObjectMapper mapper;
 
     @GetMapping("/hello")
